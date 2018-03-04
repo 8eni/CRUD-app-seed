@@ -1,7 +1,6 @@
-# MEAN stack web Angular5/bootstrap4/node/express/mongodb
+# MEAN stack seed 
 
-MEAN stack web project starter seed using Angular 5 generated with 
-[angular-cli](https://github.com/angular/angular-cli). Simple UI uising bootstrap 4 to perform CRUD operations using a node/express/mongodb setup.
+MEAN stack web project starter seed using **Angular5** & **bootstrap 4**. Simple UI to perform CRUD operations against a **node/express/mongodb** server.
 
 
 # Getting started
