@@ -2,9 +2,18 @@
   <div class="container">
     <h1 class="jumbotron-heading">{{ title }}</h1>
     <p class="lead text-muted">CRUD starter application using Angular/Node/Express/MongoDB.</p>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <div class="d-flex justify-content-center">
+        <input [(ngModel)]="name" class="form-control">
+        <small id="emailHelp" class="form-text text-muted">{{ response }}</small>
+      </div>
+    </div>
+
     <div class="buttons d-flex justify-content-center">
-      <a href="#" class="btn-lg p-2 btn-primary">POST</a>
-      <a href="#" class="btn-lg p-2 btn-success">GET</a>
+      <a href="#" class="btn-lg p-2 btn-primary" (click)="post(name)">POST</a>
+      <a href="#" class="btn-lg p-2 btn-success" (click)="get(name)">GET</a>
     </div>
     <div class="buttons d-flex justify-content-center">
       <a href="#" class="btn-lg p-2 btn-warning">PUT</a>
