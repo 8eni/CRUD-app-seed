@@ -8,7 +8,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "nodemon server/server.js"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +26,10 @@
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.16"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.2",
@@ -45,6 +49,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "nodemon": "^1.14.11"
   }
 }
