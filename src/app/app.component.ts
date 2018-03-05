@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
+interface DataResponse {
+  title: string;
+  _id: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -9,9 +13,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 
 export class AppComponent {
-  title = 'CRUD Application Seed';
-  route: string = 'http://localhost:3000/crud'
+  appTitle = 'CRUD Application Seed';
+  route: string = 'http://localhost:3000/crud/'
   params = new HttpParams();
+  postResponse: string;
 
   constructor(private http: HttpClient){
 
@@ -23,15 +28,23 @@ export class AppComponent {
 
   post(title) {
 		let httpParams = this.params.set('title', title);
-    this.http.post(this.route, httpParams).subscribe(data => console.log('POST req: ',data));	
+    this.http.post<DataResponse>(this.route, httpParams).subscribe(data => 
+    	this.postResponse = `GET req: '${data.title}, ${data['_id']}`);
   }
 
   get(id) {
-    this.http.get(`http://localhost:3000/crud/${id}`).subscribe(data => console.log('GET req: ',data));	
+    this.http.get<DataResponse>(`${this.route}${id}`).subscribe(data => 
+    	console.log('GET req: ',data.title, data['_id']));	
   }
 
   delete(id) {
-    this.http.delete(`http://localhost:3000/crud/${id}`, { responseType: 'text'}).subscribe(data => console.log('DELETE req: ',data));	
+    this.http.delete(`${this.route}${id}`, { responseType: 'text'}).subscribe(data => 
+    	console.log('DELETE req: ',data));	
+  }
+
+  put(id, title) {
+		let httpParams = this.params.set('title', title);
+    this.http.put(`${this.route}${id}`, httpParams, { responseType: 'text'}).subscribe(data => console.log('POST req: ',data));	
   }
 
 }
