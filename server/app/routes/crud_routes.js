@@ -25,4 +25,16 @@ module.exports = function(app, db) {
 		})
   });
 
+  app.delete('/crud/:id', (req, res) => {
+		const id = req.params.id;
+		const details = { '_id': new ObjectID(id) };
+		db.collection('crud').remove(details, (err, result) => {
+			if (err) {
+				res.send({ 'error': 'an error has occured' });
+			} else {
+				res.send('Crud operation '+ id +' deleted');
+			}
+		})
+  });
+
 };

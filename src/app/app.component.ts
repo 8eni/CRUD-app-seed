@@ -30,4 +30,8 @@ export class AppComponent {
     this.http.get(`http://localhost:3000/crud/${id}`).subscribe(data => console.log('GET req: ',data));	
   }
 
+  delete(id) {
+    this.http.delete(`http://localhost:3000/crud/${id}`, { responseType: 'text'}).subscribe(data => console.log('DELETE req: ',data));	
+  }
+
 }
