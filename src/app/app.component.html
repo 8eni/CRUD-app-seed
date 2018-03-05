@@ -1,23 +1,28 @@
 <section class="jumbotron text-center">
   <div class="container">
-    <h1 class="jumbotron-heading">{{ title }}</h1>
+    <h1 class="jumbotron-heading">{{ appTitle }}</h1>
     <p class="lead text-muted">CRUD starter application using Angular/Node/Express/MongoDB.</p>
 
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
+      <label for="title">Title</label>
       <div class="d-flex justify-content-center">
-        <input [(ngModel)]="name" class="form-control">
+        <input [(ngModel)]="title" class="form-control">
+        <small id="emailHelp" class="form-text text-muted">{{ postResponse }}</small>
+      </div>
+      <label for="id">Id</label>
+      <div class="d-flex justify-content-center">
+        <input [(ngModel)]="id" class="form-control">
         <small id="emailHelp" class="form-text text-muted">{{ response }}</small>
       </div>
     </div>
 
     <div class="buttons d-flex justify-content-center">
-      <a href="#" class="btn-lg p-2 btn-primary" (click)="post(name)">POST</a>
-      <a href="#" class="btn-lg p-2 btn-success" (click)="get(name)">GET</a>
+      <a href="#" class="btn-lg p-2 btn-primary" (click)="post(title)">POST</a>
+      <a href="#" class="btn-lg p-2 btn-success" (click)="get(id)">GET</a>
     </div>
     <div class="buttons d-flex justify-content-center">
-      <a href="#" class="btn-lg p-2 btn-warning">PUT</a>
-      <a href="#" class="btn-lg p-2 btn-danger" (click)="delete(name)">DELETE</a>
+      <a href="#" class="btn-lg p-2 btn-warning" (click)="put(id, title)">PUT</a>
+      <a href="#" class="btn-lg p-2 btn-danger" (click)="delete(id)">DELETE</a>
     </div>
   </div>
 </section>
