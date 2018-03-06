@@ -37,4 +37,17 @@ module.exports = function(app, db) {
 		})
   });
 
+	app.put('/crud/:id', (req, res) => {
+  	const id = req.params.id;
+  	const details = { '_id': new ObjectID(id) };
+  	const title = { title: req.body.title };
+  	db.collection('crud').update(details, title, (err, result) => {
+  		if (err) {
+  			res.send({ 'error': 'an error has occured' });
+  		} else {
+  			res.send( 'Note title updated to "'+req.body.title+'"');
+  		}
+  	})
+  });
+
 };
