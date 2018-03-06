@@ -16,7 +16,7 @@ export class AppComponent {
   appTitle = 'CRUD Application Seed';
   route: string = 'http://localhost:3000/crud/'
   params = new HttpParams();
-  postResponse: string;
+  postResponse: string = 'Waiting for request...';
 
   constructor(private http: HttpClient){
 
@@ -29,22 +29,23 @@ export class AppComponent {
   post(title) {
 		let httpParams = this.params.set('title', title);
     this.http.post<DataResponse>(this.route, httpParams).subscribe(data => 
-    	this.postResponse = `GET req: '${data.title}, ${data['_id']}`);
+    	this.postResponse = `POST req: '${data.title}, ${data['_id']}`);
   }
 
   get(id) {
     this.http.get<DataResponse>(`${this.route}${id}`).subscribe(data => 
-    	console.log('GET req: ',data.title, data['_id']));	
+    	this.postResponse = `GET req: '${data.title}, ${data['_id']}`);
   }
 
   delete(id) {
     this.http.delete(`${this.route}${id}`, { responseType: 'text'}).subscribe(data => 
-    	console.log('DELETE req: ',data));	
+    	this.postResponse = `DELETE req: '${data}`);
   }
 
   put(id, title) {
 		let httpParams = this.params.set('title', title);
-    this.http.put(`${this.route}${id}`, httpParams, { responseType: 'text'}).subscribe(data => console.log('POST req: ',data));	
+    this.http.put(`${this.route}${id}`, httpParams, { responseType: 'text'}).subscribe(data => 
+    	this.postResponse = `PUT req: '${data}, ${id}`);
   }
 
 }

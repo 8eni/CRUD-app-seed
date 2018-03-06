@@ -4,15 +4,12 @@
     <p class="lead text-muted">CRUD starter application using Angular/Node/Express/MongoDB.</p>
 
     <div class="form-group">
-      <label for="title">Title</label>
+      <label for="title">{{ postResponse }}</label>
       <div class="d-flex justify-content-center">
-        <input [(ngModel)]="title" class="form-control">
-        <small id="emailHelp" class="form-text text-muted">{{ postResponse }}</small>
+        <input [(ngModel)]="title" class="form-control" placeholder="title">
       </div>
-      <label for="id">Id</label>
       <div class="d-flex justify-content-center">
-        <input [(ngModel)]="id" class="form-control">
-        <small id="emailHelp" class="form-text text-muted">{{ response }}</small>
+        <input [(ngModel)]="id" class="form-control" placeholder="id">
       </div>
     </div>
 
