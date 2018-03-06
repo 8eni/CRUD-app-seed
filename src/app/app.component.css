@@ -5,3 +5,6 @@
 .form-control {
 	max-width: 420px;
 }
+input {
+	margin-bottom: 10px;
+}
